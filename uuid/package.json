@@ -1,0 +1,21 @@
+{
+  "name": "gen-uuid",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/genUuid.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^17.0.22",
+    "@types/uuid": "^8.3.4",
+    "typescript": "^4.6.2"
+  },
+  "dependencies": {
+    "uuid": "^8.3.2"
+  }
+}
