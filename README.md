@@ -33,6 +33,19 @@ $ hashfile path/to/file
 4dc571451f9e1ea99940e514808ea75921bf28190200d1167e8e948ce52f65f7
 ```
 
+## now
+prints to std::out the current timestamp in milliseconds since epoch
+
+```shell
+$ now
+1647962621708
+```
+
+pipe output into clipboard
+```shell
+$ now | phcopy
+```
+
 ## uuid
 This script will generate random version 4 uuids. The first argument is optional and represents how many uuids you want generated. If the argument doesn't parse as a valid int it defaults to generating 1 uuid.
 

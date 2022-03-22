@@ -15,6 +15,11 @@ cd hash_file
 . install.sh
 cd ..
 
+# now
+cd now
+. install.sh
+cd ..
+
 # uuid
 cd uuid
 . install.sh
