@@ -24,6 +24,15 @@ $ rand-bytes 256 hex
 1331862fc4a357d04b39546ceedd044be234a7dad080403f08b98b0d621a1f26b8299a5843ee65e827a20fc0a80653afb492235e9c3003ffb2f75fd09ac0d5bf7fb4cef2a1be4d547948369150e0e478cde4b6c0022c98cfa23ba026f5a60a5a031ee7cdbc0d0ec67f70ea8d1c9e3f3783bf87a62f08ea5dc78708f0cce355ebb3616644ae6164e9246593a1db5329c3d67ed6277c176b0da1ac59886aa58bdde8da7353e23047bd627850879135de74db4cc3a2f7731c491580a6cf4300fbd8709ed6ca8cd9623ce473c64298136b13e69c037ae26c05afd9d33d119096b9d2d87a0554c7c48a9b22f0b554c8779668afd48a0acdcf68ddc68a475dabed0c27
 ```
 
+## hash_file
+This script will run a SHA256 hash of the provided file in the first argument to the program. Future hash algorithms will be added as well as the encoding.
+
+hash a file
+```shell
+$ hashfile path/to/file
+4dc571451f9e1ea99940e514808ea75921bf28190200d1167e8e948ce52f65f7
+```
+
 ## uuid
 This script will generate random version 4 uuids. The first argument is optional and represents how many uuids you want generated. If the argument doesn't parse as a valid int it defaults to generating 1 uuid.
 
@@ -53,4 +62,9 @@ example demonstrating an invalid number
 ```shell
 $ gen-uuid abc
 d5ac7b7c-3a97-4c1a-81df-a06132291e72
+```
+
+generate a uuid and put it straight onto your clipboard
+```shell
+$ gen-uuid | pbcopy
 ```

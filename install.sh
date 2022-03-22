@@ -10,6 +10,11 @@ cd cprng
 . install.sh
 cd ..
 
+# hash_file
+cd hash_file
+. install.sh
+cd ..
+
 # uuid
 cd uuid
 . install.sh
