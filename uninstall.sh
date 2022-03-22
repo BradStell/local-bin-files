@@ -5,33 +5,22 @@
 PROJ_NAME="local-bin-files"
 LBF_LOC="$HOME/Code/$PROJ_NAME"
 
-echo "Using location of: $LBF_LOC"
-echo ""
-
 # cprng
-echo "Installing rand-bytes"
 cd cprng
-. install.sh
+. uninstall.sh
 cd ..
-echo ""
 
 # hash_file
-echo "Installing hashfile"
 cd hash_file
-. install.sh
+. uninstall.sh
 cd ..
-echo ""
 
 # now
-echo "Installing now"
 cd now
-. install.sh
+. uninstall.sh
 cd ..
-echo ""
 
 # uuid
-echo "Installing gen-uuid"
 cd uuid
-. install.sh
+. uninstall.sh
 cd ..
-echo ""

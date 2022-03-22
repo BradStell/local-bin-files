@@ -1,8 +1,6 @@
 # create a symlink to execute the transpiled javascript
 
-echo "Using location of: $LBF_LOC"
-
-PROJ_PATH="$LBF_LOC/cprng/genrandbytes.sh"
+PROJ_PATH="$LBF_LOC/cprng/run.sh"
 SYM_LINK_PATH="/usr/local/bin/rand-bytes"
 
 echo "Linking $PROJ_PATH to location $SYM_LINK_PATH"
