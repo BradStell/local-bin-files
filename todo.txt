@@ -1,0 +1,3 @@
+* Update main install script to read directories and perform installs dynamically rather than hard coded
+* maybe just use directory names as symlink names and then we can remove script based install/uninstall scripts
+* update main install script to check for any language needed to run scripts (just node for now)
