@@ -7,20 +7,24 @@ LBF_LOC="$HOME/Code/$PROJ_NAME"
 
 # cprng
 cd cprng
+echo "uninstalling cprng"
 . uninstall.sh
 cd ..
 
 # hash_file
 cd hash_file
+echo "uninstalling hash_file"
 . uninstall.sh
 cd ..
 
 # now
 cd now
+echo "uninstalling now"
 . uninstall.sh
 cd ..
 
 # uuid
 cd uuid
+echo "uninstalling uuid"
 . uninstall.sh
 cd ..

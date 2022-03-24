@@ -11,6 +11,8 @@ echo ""
 # cprng
 echo "Installing rand-bytes"
 cd cprng
+npm i
+npm run build
 . install.sh
 cd ..
 echo ""
@@ -18,6 +20,8 @@ echo ""
 # hash_file
 echo "Installing hashfile"
 cd hash_file
+npm i
+npm run build
 . install.sh
 cd ..
 echo ""
@@ -32,6 +36,8 @@ echo ""
 # uuid
 echo "Installing gen-uuid"
 cd uuid
+npm i
+npm run build
 . install.sh
 cd ..
 echo ""
