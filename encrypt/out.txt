@@ -1,3 +1,0 @@
-This is a secret
-file that
-we are going to encrypt

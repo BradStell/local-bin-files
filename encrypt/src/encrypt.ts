@@ -5,13 +5,8 @@ import {
   createHash,
   Hash,
 } from 'crypto'
-import readline from 'readline'
-import { readFile, writeFile } from 'fs/promises'
-
-const rl = readline.createInterface({
-  input: process.stdin,
-  output: process.stdout,
-})
+import { readFile, unlink, writeFile } from 'fs/promises'
+import { FileInfo, getFileInfo } from './utils'
 
 const algorithm = 'aes-256-cbc'
 const saltHashAlgorithm = 'sha256'
@@ -29,9 +24,15 @@ async function start(password: string, inFile: string, outFile: string): Promise
     cipher.update(plainText), cipher.final()
   ])
 
+  const outFileParts: FileInfo = getFileInfo(outFile)
+  const encryptedFileName: string = `${outFileParts.name}.brad`
+
+  console.log(`writing to file ${encryptedFileName}`)
   await writeFile(
-    outFile,
+    `${encryptedFileName}`,
     Buffer.concat([
+      Buffer.from(`${outFileParts.extentionLength}`),
+      Buffer.from(outFileParts.type),
       initializationVector,
       cipherText,
     ])
@@ -39,25 +40,25 @@ async function start(password: string, inFile: string, outFile: string): Promise
     // ]).toString('base64')
   )
 
+  console.log(`deleting file: ${inFile}`)
+  await unlink(inFile)
+
   console.log('encrypted')
   process.exit(0)
 }
 
 const password: string = process.argv[2]
 const inFileName: string = process.argv[3]
+if (inFileName === undefined) {
+  console.log('No file provided. Terminating')
+  process.exit(1)
+}
+
 const outFileName: string = process.argv[4]
 
 if (outFileName === undefined) {
-  rl.question('You did not provide a file to write the encrypted data to. Do you want to overwrite the original file? [Y/n]', (answer: string): void => {
-    if (answer !== 'Y') {
-      process.exit(1)
-    }
-  
-    console.log(`Encrypted data will be written back to the file ${inFileName}`)
-    start(password, inFileName, inFileName)
-    rl.close()
-    rl.removeAllListeners()
-  })
+  console.log(`Encrypted data will be written back to the file ${inFileName}`)
+  start(password, inFileName, inFileName)
 } else {
   start(password, inFileName, outFileName)
 }

@@ -7,3 +7,11 @@
   - look at comander (other ones too)
 • take input from stdin (optional flag) so can be unix piped
 • send output to stdout (optional flag) so can be unix piped
+• allow user to specify format to save it in (and read it in)
+  - store somewhere (1 byte) type data storage 
+• store salt in file also
+• delete original file after writing new .brad file
+• if exeption occurs write back original file to disk
+• catch any errors
+  - if file not found
+  - encryption error
