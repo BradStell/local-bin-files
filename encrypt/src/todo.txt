@@ -1,0 +1,9 @@
+• write new file type
+  - come up with scheme to save:
+	file type (file extension) (and file extension length)
+	iv
+	data
+• re-write as cli tool with flags
+  - look at comander (other ones too)
+• take input from stdin (optional flag) so can be unix piped
+• send output to stdout (optional flag) so can be unix piped
