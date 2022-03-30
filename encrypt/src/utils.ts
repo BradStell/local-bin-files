@@ -4,7 +4,11 @@ export interface FileInfo {
   extentionLength: number
 }
 
-export function getFileInfo(fileName: string): FileInfo {
+export function getFileInfo(fileName: string): FileInfo | null {
+  if (fileName === undefined || fileName === null) {
+    return null
+  }
+
   const fileParts: string[] = fileName.split('.')
   return {
     name: fileParts[0],
