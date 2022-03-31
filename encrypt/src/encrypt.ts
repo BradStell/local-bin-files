@@ -8,8 +8,12 @@ import { FileInfo, getFileInfo } from './utils'
 program
   .argument('inFile')
   .option('-p, --password [password]', 'the password used to lock this file, you will need this same password to unlock the file')
-  .option('-c, --copy', 'encrypts the provided file to a new file')
   .option('-s, --stdout', 'if provided output is directed to standard output')
+
+  // not implemented yet
+  .option('-c, --copy', 'encrypts the provided file to a new file')
+  .option('-d, --directory', 'zips the contents of the directory and encrypts the compressed file')
+  .option('-r, --recursive', 'recursively encrypts all files within the directory and sub directories')
 
 /*
   node encrypt foo.txt -p secret

@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "tsc",
-    "encrypt": "node dist/encrypt.js $@",
+    "encrypt": "node dist/encrypt.js \"$@\"",
     "decrypt": "node dist/decrypt.js $@"
   },
   "keywords": [],
