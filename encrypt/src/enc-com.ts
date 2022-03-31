@@ -1,7 +1,7 @@
 import { OptionValues, program } from 'commander'
 import { createReadStream, createWriteStream } from 'fs'
 import { stdin, stdout } from 'process'
-import { encrypt } from './encrypt'
+import { encrypt } from './cryptography'
 import { InStream, OutStream, ReadableStream, WriteableStream } from './types'
 import { FileInfo, getFileInfo } from './utils'
 
