@@ -2,25 +2,19 @@ import {
   scryptSync,
   randomFillSync,
   createCipheriv,
-  createHash,
-  Hash,
+  randomBytes,
 } from 'crypto'
 import { WriteStream } from 'fs'
 import { unlink } from 'fs/promises'
-import { InStream, OutStream, WriteableStream } from './types'
+import { InStream, OutStream } from './types'
 
 const algorithm = 'aes-256-cbc'
-const saltHashAlgorithm = 'sha256'
 
 export async function encrypt(password: string, inStream: InStream, outStream: OutStream): Promise<void> {
-  const shaHasher: Hash = createHash(saltHashAlgorithm)
-  const salt: string = shaHasher.update(password).digest('hex')
-
+  const salt: Buffer = randomBytes(16)
   const key: Buffer = scryptSync(password, salt, 32)
   const initializationVector: Uint8Array = randomFillSync(new Uint8Array(16))
   const cipher = createCipheriv(algorithm, key, initializationVector)
-
-
   const chunks: Buffer[] = []
 
   inStream.readStream.on('readable', () => {
@@ -35,9 +29,9 @@ export async function encrypt(password: string, inStream: InStream, outStream: O
     const cipherText: Buffer = Buffer.concat([ cipher.update(plainText), cipher.final() ]);
 
     const fileDataBuffer: Buffer = Buffer.concat([
-      Buffer.from(`${outStream.toFile ? inStream.fileType?.length : ''}`),
-      Buffer.from(outStream.toFile ? inStream.fileType ?? '' : ''),
-      initializationVector,
+      encode(inStream.fileType),
+      encode(initializationVector),
+      encode(salt),
       cipherText,
     ]);
 
@@ -49,6 +43,21 @@ export async function encrypt(password: string, inStream: InStream, outStream: O
 
     process.exit(0)
   })
+}
+
+function encode(data: Buffer | Uint8Array | string | undefined): Buffer {
+  if (data === undefined) {
+    data = ''
+  }
+
+  if (data.length > 255) {
+    throw new Error('data length must fit into 1 byte (less than 255 in length)')
+  }
+
+  return Buffer.concat([
+    Buffer.from(Uint8Array.of(data.length)),
+    typeof data === 'string' ? Buffer.from(data) : data,
+  ])
 }
 
 // export async function decrypt(password: string, inFile: string, outFile: string): Promise<void> {

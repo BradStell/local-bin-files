@@ -7,7 +7,7 @@
 		{
 			"type": "pwa-node",
 			"request": "launch",
-			"name": "Launch Program",
+			"name": "encrypt",
 			"skipFiles": [
 				"<node_internals>/**"
 			],
@@ -15,7 +15,7 @@
 			"outFiles": [
 				"${workspaceFolder}/dist/*.js"
 			],
-			"args": [ "2021_taxes.csl", "-p", "s3cretpw", "-s" ]
+			"args": [ "test.txt", "-p", "secret", "-s" ]
 		}
 	]
 }

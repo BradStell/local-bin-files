@@ -1,3 +1,5 @@
+• encode numbers for file type length, IV length, and salt length, as binary in single byte
+• change encrypt signature to take pure read/write streams and an options object for the rest
 • write new file type
   - come up with scheme to save:
 	file type (file extension) (and file extension length)
