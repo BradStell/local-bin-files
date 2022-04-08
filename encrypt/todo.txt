@@ -1,19 +1,12 @@
-• encode numbers for file type length, IV length, and salt length, as binary in single byte
 • change encrypt signature to take pure read/write streams and an options object for the rest
-• write new file type
-  - come up with scheme to save:
-	file type (file extension) (and file extension length)
-	iv
-	data
-• re-write as cli tool with flags
-  - look at comander (other ones too)
-• take input from stdin (optional flag) so can be unix piped
-• send output to stdout (optional flag) so can be unix piped
 • allow user to specify format to save it in (and read it in)
+  - // const cipherFileData: Buffer = Buffer.from(await readFile(inFile, 'binary'), 'base64')
   - store somewhere (1 byte) type data storage 
-• store salt in file also
-• delete original file after writing new .brad file
 • if exeption occurs write back original file to disk
 • catch any errors
   - if file not found
   - encryption error
+• investigate why we have to cast write stream
+• optionally encrypt directory
+  - as a zip
+  - or recursively each file in directory (flag)

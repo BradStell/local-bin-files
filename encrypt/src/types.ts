@@ -4,13 +4,8 @@ export type ReadableStream = ReadStream | (NodeJS.ReadStream & { fd: 0 })
 
 export type WriteableStream = WriteStream | (NodeJS.WriteStream & { fd: 1 })
 
-export interface InStream {
-  readStream: ReadableStream
-  fileName?: string
+export interface Options {
   fileType?: string
-}
-
-export interface OutStream {
-  toFile: boolean
-  writeStream: WriteableStream
+  fileName?: string
+  deleteOriginalFile: boolean
 }

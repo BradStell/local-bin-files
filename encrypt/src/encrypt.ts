@@ -2,7 +2,7 @@ import { OptionValues, program } from 'commander'
 import { createReadStream, createWriteStream } from 'fs'
 import { stdin, stdout } from 'process'
 import { encrypt } from './cryptography'
-import { InStream, OutStream, ReadableStream, WriteableStream } from './types'
+import { ReadableStream, WriteableStream } from './types'
 import { FileInfo, getFileInfo } from './utils'
 
 program
@@ -44,16 +44,8 @@ if (opts.stdout === true) {
   writeStream = createWriteStream(`${fileParts?.name}.brad`)
 }
 
-
-const inStream: InStream = {
-  fileName: fileParts?.name,
-  fileType: fileParts?.type,
-  readStream,
-}
-
-const outStream: OutStream = {
-  toFile: opts.stdout !== true,
-  writeStream,
-}
-
-encrypt(opts.password, inStream, outStream)
+encrypt(opts.password, readStream, writeStream, {
+  fileName: fileParts?.name ?? '',
+  fileType: fileParts?.type ?? '',
+  deleteOriginalFile: opts.stdout !== true
+})

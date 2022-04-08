@@ -6,7 +6,7 @@
   "scripts": {
     "build": "tsc",
     "encrypt": "node dist/encrypt.js \"$@\"",
-    "decrypt": "node dist/decrypt.js $@"
+    "decrypt": "node dist/decrypt.js \"$@\""
   },
   "keywords": [],
   "author": "",
