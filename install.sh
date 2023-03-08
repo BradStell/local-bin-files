@@ -29,6 +29,8 @@ echo ""
 # now
 echo "Installing now"
 cd now
+npm i
+npm run build
 . install.sh
 cd ..
 echo ""

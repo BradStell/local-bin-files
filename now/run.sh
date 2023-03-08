@@ -1,1 +1,1 @@
-node "$HOME/Code/local-bin-files/now/now.js"
+node "$HOME/Code/local-bin-files/now/dist/index.js"
