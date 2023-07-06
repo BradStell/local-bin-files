@@ -9,8 +9,8 @@ cp "$HOME/Code/local-bin-files/ts-init/.env" ./.env
 cp "$HOME/Code/local-bin-files/ts-init/.env.example" ./.env.example
 
 # source files
+mkdir src
 cp "$HOME/Code/local-bin-files/ts-init/utils.ts" ./src/utils.ts
 cp "$HOME/Code/local-bin-files/ts-init/config.ts" ./src/config.ts
 touch src/index.ts
 
-mkdir src dist
