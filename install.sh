@@ -43,3 +43,12 @@ npm run build
 . install.sh
 cd ..
 echo ""
+
+# color convert
+echo "Installing hex2rgb"
+cd color-convert
+npm i
+npm run build
+. install.sh
+cd ..
+echo ""
