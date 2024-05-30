@@ -52,3 +52,10 @@ npm run build
 . install.sh
 cd ..
 echo ""
+
+# ts-init
+echo "Installing ts-init"
+cd ts-init
+. install.sh
+cd ..
+echo ""

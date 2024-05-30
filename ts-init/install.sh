@@ -5,4 +5,4 @@ SYM_LINK_PATH="/usr/local/bin/ts-init"
 
 echo "Linking $PROJ_PATH to location $SYM_LINK_PATH"
 
-ln -s $PROJ_PATH $SYM_LINK_PATH
+sudo ln -s $PROJ_PATH $SYM_LINK_PATH
